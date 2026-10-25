@@ -1,0 +1,12 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", pad="0.3", nodesep="0.5", ranksep="0.8"];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F1FC", color="#4576A8", fontname="Helvetica", fontsize=13, margin="0.20,0.14"];
+  admin [label="Administrator\nLogin / Password"];
+  gui [label="Tkinter UI\nDashboard / Reports / Students"];
+  cam [label="Mac webcam\nOpenCV capture"];
+  detector [label="Haar face detector\nPreprocess + LBPH"];
+  db [label="SQLite\nStudents / Attendance / Admin", fillcolor="#E8F7ED",color="#418B5B"];
+  imgs [label="Face images + trained model\nLocal files",fillcolor="#FFF4E1",color="#C28C37"];
+  csv [label="CSV export / reports",fillcolor="#E8F7ED",color="#418B5B"];
+  admin -> gui; gui -> cam; cam -> detector; detector -> imgs [dir=both]; gui -> db [dir=both]; detector -> db [label="mark once/day"];db -> csv;gui -> csv;
+}
